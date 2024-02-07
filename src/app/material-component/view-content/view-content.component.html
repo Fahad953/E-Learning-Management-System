@@ -1,0 +1,95 @@
+<mat-card>
+  <b><span>All Content</span></b>
+</mat-card>
+<br>
+
+<div class="main-container">
+  <div class="row">
+    <div class="column">
+      <mat-card class="content-card">
+        <mat-card-header style="background-color:  #e53935; justify-content: center;
+         align-items: center; ">
+          <mat-card-title style="text-align: center; justify-content: center; color: white;" class="pdf-content-title">PDF Content</mat-card-title>
+        </mat-card-header>
+        <ul>
+          <li *ngFor="let item of pdfContent">
+            <ng-container *ngIf="item.content_type === 'pdf' && item.content_url">
+              <div class="content-item">
+                <p class="content-title">{{ item.contentTitle || 'PDF Document' }}</p>
+                <div class="content-links">
+                  <a  href="javascript:void(0)" (click)="viewContent(item.content_url)">View</a>
+                  <a class="download-button" href="javascript:void(0)" (click)="downloadContent(item.contentTitle,item.content_url)">Download</a>
+                </div>
+              </div>
+            </ng-container>
+          </li>
+        </ul>
+      </mat-card>
+    </div>
+    <div class="column">
+      <mat-card class="content-card">
+        <mat-card-header style="background-color:  #e53935; justify-content: center;
+        align-items: center; ">
+         <mat-card-title style="text-align: center; justify-content: center; color: white;" class="pdf-content-title">Video Content</mat-card-title>
+       </mat-card-header>
+        <ul>
+          <li *ngFor="let item of videoContent">
+            <ng-container *ngIf="item.content_type === 'video' && item.content_url">
+              <div class="content-item">
+                <p class="content-title">{{ item.contentTitle || 'video content' }}</p>
+                <div class="content-links">
+                  <a  href="javascript:void(0)" (click)="viewContent(item.content_url)">View</a>
+                  <a class="download-button" href="javascript:void(0)" (click)="downloadContent(item.contentTitle,item.content_url)">Download</a>
+                </div>
+              </div>
+            </ng-container>
+          </li>
+        </ul>
+      </mat-card>
+    </div>
+    <div class="column" >
+      <mat-card class="content-card">
+        <mat-card-header style="background-color:  #e53935; justify-content: center;
+        align-items: center; ">
+         <mat-card-title style="text-align: center; justify-content: center; color: white;" class="pdf-content-title">Image Content</mat-card-title>
+       </mat-card-header>
+        <ul>
+          <li *ngFor="let item of imageContent">
+            <ng-container *ngIf="item.content_type === 'image' && item.content_url">
+              <div class="content-item">
+                <p class="content-title">{{ item.contentTitle || 'Image' }}</p>
+                <div class="content-links">
+                  <a  href="javascript:void(0)" (click)="viewContent(item.content_url)">View</a>
+                  <a class="download-button" href="javascript:void(0)" (click)="downloadContent(item.contentTitle,item.content_url)">Download</a>
+                </div>
+              </div>
+            </ng-container>
+          </li>
+        </ul>
+      </mat-card>
+    </div>
+
+    <div class="column" >
+      <mat-card class="content-card">
+        <mat-card-header style="background-color:  #e53935; justify-content: center;
+        align-items: center; ">
+         <mat-card-title style="text-align: center; justify-content: center; color: white;" class="pdf-content-title">URL Content</mat-card-title>
+       </mat-card-header>
+        <ul>
+          <li *ngFor="let item of urlContent">
+            <ng-container *ngIf="item.content_type === 'link' && item.content_url">
+              <div class="content-item">
+                <p class="content-title">{{ item.contentTitle || 'url' }}</p>
+                <div class="content-links">
+                  <!-- <a  href="javascript:void(0)" (click)="viewContent(item.content_url)">View</a> -->
+                  <!-- <a class="download-button" href="javascript:void(0)" (click)="downloadContent(item.contentTitle,item.content_url)">Download</a> -->
+                  <a href="{{item.content_url}}" >View</a>
+                </div>
+              </div>
+            </ng-container>
+          </li>
+        </ul>
+      </mat-card>
+    </div>
+  </div>
+</div>

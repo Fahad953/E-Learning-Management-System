@@ -1,0 +1,121 @@
+<div class="make-flex">
+  <!-- content-management.component.html -->
+
+  <mat-card>
+    <mat-card-title>Content Management</mat-card-title>
+    <mat-card-content>
+      <!-- Add Content Form -->
+      
+
+      <form >
+        <mat-form-field>
+          <mat-label>Select a Course</mat-label>
+          <mat-select [(ngModel)]="newContent.course_id" name="course">
+            <mat-option *ngFor="let course of data" [value]="course.id">
+              {{ course.title }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Add Title</mat-label>
+          <input matInput [(ngModel)]="newContent.contentTitle" name="title" required />
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-label>Type</mat-label>
+          <mat-select [(ngModel)]="newContent.content_type" name="type" required>
+            <mat-option value="video">Video (upto 500 MB)</mat-option>
+            <mat-option value="pdf">PDF</mat-option>
+            <mat-option value="image">Image</mat-option>
+            <mat-option value="link">Link</mat-option>
+          </mat-select>
+        </mat-form-field>
+      
+        <ng-container *ngIf="newContent.content_type === 'image'">
+          <mat-form-field>
+            <mat-label>Upload Image</mat-label>
+            <input matInput type="text" disabled [value]="selectedImageName" placeholder="No file selected" />
+            <input type="file" (change)="onFileSelected($event, 'image')" accept="image/*" style="display: none" #imageFileInput />
+            <button mat-raised-button color="primary" (click)="imageFileInput.click()">Choose Image</button>
+          </mat-form-field>
+        </ng-container>
+        
+        <!-- <ng-container *ngIf="newContent.content_type === 'video'">
+          <mat-form-field>
+            <mat-label>Upload Video</mat-label>
+            <input matInput type="text" disabled [value]="selectedVideoName" placeholder="No file selected" />
+            <input type="file" (change)="onFileSelected($event, 'video')" accept="video/*" style="display: none" #fileInput />
+            <button mat-raised-button color="primary" (click)="fileInput.click()">Choose File</button>
+          </mat-form-field>
+        </ng-container>
+         -->
+
+         <ng-container *ngIf="newContent.content_type === 'video'">
+          <mat-form-field>
+            <mat-label>Upload Video</mat-label>
+            <input matInput type="text" disabled [value]="selectedVideoName" placeholder="No file selected" />
+            <input type="file" (change)="onFileSelected($event, 'video')" accept="video/*" style="display: none" #fileInput />
+            <button mat-raised-button color="primary" (click)="fileInput.click()">Choose File</button>
+            <div *ngIf="fileSizeError" class="error-message">File size exceeds the limit (500 MB).</div>
+          </mat-form-field>
+        </ng-container>
+
+        
+        <ng-container *ngIf="newContent.content_type === 'pdf'">
+          <mat-form-field>
+            <mat-label>Upload PDF</mat-label>
+            <input matInput type="text" disabled [value]="selectedPdfName" placeholder="No file selected" />
+            <input type="file" (change)="onFileSelected($event, 'pdf')" accept=".pdf" style="display: none" #pdfFileInput />
+            <button mat-raised-button color="primary" (click)="pdfFileInput.click()">Choose PDF File</button>
+          </mat-form-field>
+        </ng-container>
+        
+        <ng-container *ngIf="newContent.content_type === 'link'">
+          <mat-form-field>
+            <mat-label>Link URL</mat-label>
+            <input matInput [(ngModel)]="newContent.url" name="url" required />
+          </mat-form-field>
+        </ng-container>
+
+        <button mat-raised-button color="primary" (click)="addContent()" type="submit">Add Content</button>
+      </form>
+      
+      
+    </mat-card-content>
+  </mat-card>
+
+  <mat-divider></mat-divider>
+
+  <!-- <mat-card *ngFor="let content of contents" class="float-left">
+    <mat-card-title>{{ content.contentTitle }}</mat-card-title>
+    <mat-card-content>
+      <button mat-icon-button (click)="viewContent(content)">
+        <mat-icon>{{ getIconForType(content.content_type) }}</mat-icon>
+      </button>
+      <button mat-icon-button (click)="editContent(content)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deleteContent(content)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card> -->
+
+
+  <mat-card *ngFor="let content of contents" class="float-left" >
+    <mat-card-title>{{ content.contentTitle }}</mat-card-title>
+    <mat-card-content>
+      <button mat-icon-button (click)="viewContent(content)">
+        <mat-icon>{{ getIconForType(content.content_type) }}</mat-icon>
+      </button>
+      <!-- <button mat-icon-button (click)="editContent(content)">
+        <mat-icon>edit</mat-icon>
+      </button> -->
+      <button mat-icon-button (click)="deleteContent(content)" >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+  
+</div>

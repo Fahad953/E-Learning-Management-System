@@ -1,0 +1,45 @@
+/* content-management.component.scss */
+
+mat-card {
+    margin: 10px;
+    padding: 10px;
+    width: 98%;
+  
+    mat-card-title {
+      font-size: 18px;
+    }
+  
+    mat-card-subtitle {
+      font-size: 14px;
+      color: #666;
+    }
+  
+    mat-divider {
+      margin: 10px 0;
+    }
+  
+    mat-form-field {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    button {
+      margin: 5px;
+    }
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  
+    button {
+      align-self: flex-end;
+      margin-top: 10px;
+    }
+  }
+  
+.float-left ,.make-flex{
+ 
+    display: flex;
+    flex-direction: column;
+}

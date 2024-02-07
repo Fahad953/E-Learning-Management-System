@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row fxLayout = "row">
+        <span class="title-center">{{dialogData.action}} Course</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="courseForm">
+        <div fxflex fxLayout = "column">
+            <div fxLayout = "row">
+            <mat-form-field appearance="fill" fxFlex>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Enter your course name" required>
+                <mat-error *ngIf="courseForm.controls.name.touched && courseForm.controls.name.invalid">
+                    <span *ngIf="courseForm.controls.name.errors.required">Course Name is required</span>
+                </mat-error>
+            </mat-form-field>
+            </div>
+            <div fxLayout = "row">
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>Description</mat-label>
+                    <input matInput formControlName="description" placeholder="Enter your course description" >
+                </mat-form-field>
+                </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align = "center">
+    <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()" 
+    [disabled]="!(courseForm.valid && courseForm.dirty)">Submit</button>
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+</mat-dialog-actions>

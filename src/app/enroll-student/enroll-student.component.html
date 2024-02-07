@@ -1,0 +1,33 @@
+
+
+<h1>ENROLL STUDENT</h1>
+
+<form class="custom-form">
+  <label for="rollNumberSelect" class="custom-label">Select Roll Number:</label>
+  <select id="rollNumberSelect" [(ngModel)]="selectedRollNumber" name="rollNumberSelect" (change)="onRollNumberSelected()" class="custom-select">
+    <option value="">Select Roll Number</option>
+    <option *ngFor="let student of d" [value]="student.id">Roll No. {{ student.id }}</option>
+  </select>
+
+  <label for="courseTitleSelect" class="custom-label">Select Course Title:</label>
+  <select id="courseTitleSelect" [(ngModel)]="selectedEnrollment" name="courseTitleSelect" class="custom-select">
+    <option value="">Select Course Title</option>
+    <option *ngFor="let course of data" [value]="course.id">{{ course.title }}</option>
+  </select>
+
+  <label for="studentNameInput" class="custom-label">Student Name:</label>
+  <input type="text" id="studentNameInput" [(ngModel)]="studentName" name="studentNameInput" class="custom-input" disabled>
+
+  <label for="emailInput" class="custom-label">Email:</label>
+  <input type="email" id="emailInput" [(ngModel)]="studentEmail" name="emailInput" class="custom-input">
+
+  <label for="phoneInput" class="custom-label">Phone Number:</label>
+  <input type="tel" id="phoneInput" [(ngModel)]="studentPhoneNumber" name="phoneInput" class="custom-input">
+  
+  <!-- <button type="button" class="custom-button" (click)="onSubmit()">Submit</button> -->
+
+  <mat-card-actions class="actions"   style="display: flex; justify-content: center;">
+    <button mat-raised-button color="primary" class="button" type="submit" (click)="onSubmit()" 
+    [disabled]="!selectedRollNumber || !selectedEnrollment" >Add</button>
+</mat-card-actions>
+</form>

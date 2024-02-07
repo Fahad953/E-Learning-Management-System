@@ -1,0 +1,19 @@
+
+    <mat-card>
+        <b ><span >All Courses</span></b>
+    </mat-card>
+    <br>
+    <div class="main-container">
+
+      
+        <div class="row">
+            <div class="column" *ngFor="let course of data">
+                <div class="container course-box">
+                    <h2>{{ course.title }}</h2>
+                    <p>{{ course.description || 'No description available' }}</p>
+                    <p><button class="button" (click)="viewCourseContent(course.id)">View Content</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,154 @@
+// .position-relative {
+//     position: relative;
+//   }
+  
+  .add-contact {
+    position: absolute;
+    right: 17px;
+    top: 57px;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .column {
+    flex: 1;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+  }
+  
+  .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+  }
+  
+  .container {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .title {
+    color: black;
+    text-align: center !important;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #e53935;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .column {
+      width: 100%;
+      display: block;
+    }
+  
+    .main-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping when the screen width is limited */
+    justify-content: space-between; /* Distribute columns with space between them */
+  }
+  
+  .column {
+    flex: 0 0 calc(50% - 16px); /* Set a fixed 50% width for each column, including spacing */
+    margin: 8px; /* Add margin to create spacing between columns */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+  }
+  
+  .course-box {
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+  }
+  
+
+  
+  
+  
+  
+  .view-button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #2196F3; /* Change to the desired button color */
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-top: 16px;
+  }
+
+  
+  
+  .view-button:hover {
+    background-color: #1976D2; /* Change to the desired button hover color */
+  }
+  .content-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust the spacing as needed */
+  }
+  
+  .content-title {
+    flex: 1; /* Make the title take up the available space */
+  }
+  
+  .content-links {
+    display: flex;
+    gap: 10px; /* Adjust the spacing between "View" and "Download" links */
+  }
+  
+  .mat-card-title {
+    margin-top: 3%;
+    text-align: center; /* Center align the text within the card title */
+  }
+  
